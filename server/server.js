@@ -11,6 +11,14 @@ app.use(express.static(publicPath));
 
 let io=socketIO(server);
 
+io.on('connection',(client)=>{
+    console.log('user connected');
+
+    client.on('disconnect',()=>{
+        console.log('usuario desconectado');
+    })
+});
+
 server.listen(port, (err) => {
 
     if (err) throw new Error(err);
