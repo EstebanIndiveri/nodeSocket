@@ -24,7 +24,16 @@
             console.log('no connected');
         });
         //emit envia info
-        socket.emit
+        socket.emit('enviarMensaje',{
+            usuario:'Esteban',
+            mensaje:'hola sockets'
+        },(res)=>{
+            console.log(res);
+        });
+        //listener
+        socket.on('enviarMensaje',(mensaje)=>{
+            console.log(mensaje);
+        })
     </script>
 </body>
 
